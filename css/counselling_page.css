@@ -1,0 +1,29 @@
+.c_name{
+	display: inline;
+}
+.c_location{
+	float: right;
+}
+.c_address{
+	display: inline-block;
+	width: 50%;
+}
+.c_email_id{
+	display: inline;
+}
+.c_phone{
+	float: right;
+}
+.list-group-item-heading{
+	padding-bottom: 20px;
+}
+.c_dates_available{
+	padding-left: 10px;
+}
+.c_months_available{
+	padding-left: 40px;
+}
+#c_date_select_form .radio{
+	display: inline-block;
+	padding-right: 20px;
+}
