@@ -5,8 +5,8 @@
 
 	query("Update Timeslots set Avail_Booked = '1' where Slot_id = '". $_COOKIE["slot_id"]."'");
 
-	setcookie("pay_key", -1, time()-1, "/");
-	setcookie("slot_id", -1, time()-1, "/");
+	setcookie("pay_key", 0, time()-1, "/");
+	setcookie("slot_id", 0, time()-1, "/");
 
 	render("successful.php");
 	// header("Location: counselor_page.php");

@@ -4,14 +4,14 @@
 .c_location{
 	float: right;
 }
-.c_address{
+.c_old_date, .c_address{
 	display: inline-block;
 	width: 50%;
 }
 .c_email_id{
 	display: inline;
 }
-.c_phone{
+.c_old_time, .c_phone{
 	float: right;
 }
 .list-group-item-heading{
@@ -26,4 +26,9 @@
 #c_date_select_form .radio{
 	display: inline-block;
 	padding-right: 20px;
+}
+.list-group-item p{
+	overflow-wrap: normal;
+	overflow-wrap: break-word;
+	/*word-wrap: break-word;*/
 }

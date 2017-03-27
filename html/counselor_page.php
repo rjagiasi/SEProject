@@ -14,7 +14,7 @@
 
 				allcounsellors[0].forEach( function(nearby_counsellor, index) {
 					list1 += 
-					"<a class=\"list-group-item\" id=\""+nearby_counsellor.Counsellor_id+"\"><div class=\"list-group-item-heading\"><h4 class=\"c_name\">"+nearby_counsellor.Name+"</h4><p class=\"c_location\">"+nearby_counsellor.Place+"</p></div><div class=\"list-group-item-text\"><p class=\"c_address\">"+nearby_counsellor.Address+"</p><p class=\"c_email_id\">"+nearby_counsellor.Email_id+"</p><p class=\"c_phone\">"+nearby_counsellor.Contact_No+"</p></div></a>";
+					"<a class=\"list-group-item\" id=\""+nearby_counsellor.Counsellor_id+"\"><div class=\"list-group-item-heading\"><h4 class=\"c_name\">"+nearby_counsellor.Name+"</h4><p class=\"c_location\">"+nearby_counsellor.Place+"</p></div><div class=\"list-group-item-text\"><p class=\"c_address\">"+nearby_counsellor.Address+"</p><p class=\"c_email_id hidden-xs\">"+nearby_counsellor.Email_id+"</p><p class=\"c_phone\">"+nearby_counsellor.Contact_No+"</p></div></a>";
 				});
 
 				if(list1 == "")
@@ -26,7 +26,7 @@
 
 				allcounsellors[1].forEach( function(nearby_counsellor, index) {
 					list2 += 
-					"<a class=\"list-group-item\" id=\""+nearby_counsellor.Counsellor_id+"\"><div class=\"list-group-item-heading\"><h4 class=\"c_name\">"+nearby_counsellor.Name+"</h4><p class=\"c_location\">"+nearby_counsellor.Place+"</p></div><div class=\"list-group-item-text\"><p class=\"c_address\">"+nearby_counsellor.Address+"</p><p class=\"c_email_id\">"+nearby_counsellor.Email_id+"</p><p class=\"c_phone\">"+nearby_counsellor.Contact_No+"</p></div></a>";
+					"<a class=\"list-group-item\" id=\""+nearby_counsellor.Counsellor_id+"\"><div class=\"list-group-item-heading\"><h4 class=\"c_name\">"+nearby_counsellor.Name+"</h4><p class=\"c_location\">"+nearby_counsellor.Place+"</p></div><div class=\"list-group-item-text\"><p class=\"c_address\">"+nearby_counsellor.Address+"</p><p class=\"c_email_id hidden-xs\">"+nearby_counsellor.Email_id+"</p><p class=\"c_phone\">"+nearby_counsellor.Contact_No+"</p></div></a>";
 				});
 
 				if(list2 == "")
@@ -36,7 +36,7 @@
 			}
 		});
 
-		$('.tab-content').on('click', 'a.list-group-item', function(event) {
+		$('.tab-content #book').on('click', 'a.list-group-item', function(event) {
 			event.preventDefault();
 
 			var dialog_element = $('#date_book_dialog');
@@ -46,11 +46,11 @@
 			var counselor_id = $(this).attr('id');
 
 			var content_string = 
-				"<p><strong>Unique Counselor Id</strong> : " + counselor_id +"</p>"+
-				"<p><strong>Region</strong> : " + $(this).find('.c_location').html()+"</p>"+
-				"<p><strong>Address</strong> : " + $(this).find('.c_address').html()+"</p>"+
-				"<p><strong>Contact No</strong> : " + $(this).find('.c_phone').html()+"</p>"+
-				"<p><strong>Email Id</strong> : " + $(this).find('.c_email_id').html()+"</p>";
+			"<p><strong>Unique Counselor Id</strong> : " + counselor_id +"</p>"+
+			"<p><strong>Region</strong> : " + $(this).find('.c_location').html()+"</p>"+
+			"<p><strong>Address</strong> : " + $(this).find('.c_address').html()+"</p>"+
+			"<p><strong>Contact No</strong> : " + $(this).find('.c_phone').html()+"</p>"+
+			"<p><strong>Email Id</strong> : " + $(this).find('.c_email_id').html()+"</p>";
 
 			
 
@@ -80,26 +80,26 @@
 
 					$(dialog_element).find('.modal-body').html(content_string);
 					$(dialog_element).modal('toggle');
-					$(".modal-footer").html("Select a date");
+					$("#date_book_dialog .modal-footer").html("Select a date");
 				}
 			});
 		});
 
-		$(".modal-body").on('click', '.c_dates_available', function(event) {
+		$("#date_book_dialog .modal-body").on('click', '.c_dates_available', function(event) {
 			event.preventDefault();
 			
 			var timings = $(this).attr('data-timings');			
 			// alert(timings);
 			var form_string = "<label for=\"c_date_select_form\">Timings Available</label><form id=\"c_date_select_form\"method=\"post\" action=\"book_appointment.php\" target=\"_blank\">";
 			$.each(JSON.parse(timings), function(index, val) {
-				 
-				 form_string += "<div class=\"radio\"><label><input type=\"radio\" name=\"slot_id\" value=\""+index+"\">"+val+"</label></div>";
+
+				form_string += "<div class=\"radio\"><label><input type=\"radio\" name=\"slot_id\" value=\""+index+"\">"+val+"</label></div>";
 
 			});
 			form_string += "<button type=\"submit\" class=\"btn btn-primary\">Book & Pay</button>";
 			form_string += "</form>";
 
-			$(".modal-footer").html(form_string);
+			$("#date_book_dialog .modal-footer").html(form_string);
 
 		});
 
@@ -108,7 +108,14 @@
 			type: 'POST',
 			dataType: 'json',
 			success: function (data) {
-				
+				var oldbookings_string = "";
+				$.each(data, function(index, tuple) {
+					 /* iterate through array or object */
+					 oldbookings_string +=
+					 "<a class=\"list-group-item\"><div class=\"list-group-item-heading\"><h4 class=\"c_name\">"+tuple.Name+"</h4><p class=\"c_location\">"+tuple.Place+"</p></div><div class=\"list-group-item-text\"><p class=\"c_old_date\">Date - "+tuple.Date+"</p><p class=\"c_old_time\">Time - "+tuple.Time+"</p></div></a>";
+
+				});
+				$("#old .list-group").html(oldbookings_string);
 			}
 		});
 		
@@ -142,7 +149,7 @@
 	<div id="old" class="tab-pane fade">
 		<h3>Older Bookings</h3>
 		<div class="list-group">
-				
+			
 		</div>
 	</div>
 	

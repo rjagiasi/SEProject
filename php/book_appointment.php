@@ -10,7 +10,7 @@ $check = query("SELECT Avail_Booked, PayPal_Email_id from Timeslots, Counsellor	
 
 
 if($check[0]["Avail_Booked"] == 0){
-	setcookie("slot_id", 1, time()+900, "/");
+	setcookie("slot_id", $slot_id, time()+900, "/");
 }
 else
 	header("Location : cancel.php");
@@ -43,7 +43,7 @@ $data = array(
 	"receiverList.receiver(0).email"=>"rohan.jagiasi-admin@ves.ac.in",
 	"receiverList.receiver(0).primary"=>"true",
 	"receiverList.receiver(1).amount"=>(0.8*$amount),
-	"receiverList.receiver(1).email"=>"rohan.jagiasi-counselor@ves.ac.in",
+	"receiverList.receiver(1).email"=> $check[0]["PayPal_Email_id"],
 	"receiverList.receiver(1).primary"=>"false",
 	"requestEnvelope.errorLanguage"=>"en_US",
 	"returnUrl"=>"http://localhost/SEProject/php/success.php",
@@ -60,6 +60,6 @@ setcookie("pay_key", $data["payKey"], time()+900, "/");
 
 sleep(5);
 
-header("Location: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=" . $_COOKIE["pay_key"]);
+header("Location: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_ap-payment&paykey=" . $data["payKey"]);
 
 ?>
