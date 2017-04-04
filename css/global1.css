@@ -1,0 +1,23 @@
+#im{
+	float: left;
+}
+#headt{
+	float: left;
+	margin-left:10px;
+}
+.footer{
+	background-color: lightgray;
+	box-shadow: 2px 2px 2px gray;
+	padding: 10px;
+	position: relative;
+ 	text-align: center;
+  	bottom: 0;
+	margin: 0 auto;
+	width: 100%;
+	color: black;
+	border-top: 2px solid black;
+	filter: opacity(80%);
+}
+#foot{
+	list-style-type: none;
+}
