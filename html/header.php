@@ -2,9 +2,6 @@
 <html>
 <head>
 	<title>Career Choices</title>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -14,7 +11,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="../css/global.css">
+	<link rel="stylesheet" type="text/css" href="../css/global1.css">
 
 </head>
 <body>
@@ -45,7 +42,13 @@
 					
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.php"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+					<li>
+						<?php if (isset($_COOKIE['name'])) { ?>
+							<a href="../php/logout.php"><span class="glyphicon glyphicon-log-out"> Logout </a>
+						<?php }else{ ?>
+							<a href="../php/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+						<?php }?>
+						</li>
 				</ul>
 			</div>
 		</nav>
