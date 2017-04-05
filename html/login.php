@@ -43,6 +43,7 @@
 
 </head>
 <body>
+            <?php if (isset($_COOKIE['name'])) { header('location: ../php/index.php');} ?>
 
 <div id="cont">
 
@@ -88,7 +89,14 @@
 
 	</form>
   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-  
+
+  <div><p style="color: red;">
+    <?php 
+    if( isset($_COOKIE['GError']) )
+    {
+        echo $_COOKIE['GError'];
+
+    }  ?></p></div>  
 
   </div>
 

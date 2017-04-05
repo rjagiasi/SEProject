@@ -2,10 +2,10 @@
 require 'functions.php';
 
 $idtoken = $_GET["idtoken"];
-print_r($idtoken);
+//print_r($idtoken);
 $url = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=".$idtoken;
 $head = file_get_contents($url);
-var_dump($head);
+//var_dump($head);
 
 $json = json_decode($head, true);
 $name = $json['name'];
@@ -13,6 +13,11 @@ $email = $json['email'];
 $id = $json['sub'];
 // var_dump($name);
 $sel = query( "select * from user where email_id = '$email' and google_id = '$id'");
+$goo = query("select google_id from user where email_id = '$email'");
+
+foreach ($goo as $key => $value) {
+$goog = $value['google_id'];
+if($goog!=null){
 
 if($sel==null){
 	$ins = query("insert into user(Google_id, Name, Email_id) values ('$id', '$name', '$email')");
@@ -32,5 +37,13 @@ else{
 	setcookie('emailid', $email, time()+(86400+10), '/');
 	}
 		header('Location: index.php');
+}
+
+}
+else{
+	setcookie('GError', 'Please login with correct username password', time()+(30), '/');
+	header('location: login.php');
+	 
+}
 }
 ?>
