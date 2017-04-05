@@ -8,7 +8,6 @@ if(isset($_POST['calendar']))
 
 $result = query("INSERT INTO user_data VALUES 
 ('".$_COOKIE["userid"]."','".$_COOKIE["name"]."','".$_COOKIE["calendar"]."','".$_COOKIE["percentage"]."','".$_COOKIE["branch"]."') ");
-
- echo "kkk";
+header('Location: interest.php');
 
 ?>
