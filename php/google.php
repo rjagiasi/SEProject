@@ -31,12 +31,17 @@ if($sel==null){
 	header('Location: details_page.php');
 }
 else{
+	header('Location: index.php');
 	foreach ($sel as $key => $row) {
 	setcookie('user', $row['User_id'], time()+(86400+10), '/');
 	setcookie('name', $row['Name'], time()+(86400+10), '/');
 	setcookie('emailid', $email, time()+(86400+10), '/');
+	$det = query("Select * from user_data where user_id = ".$row['User_id']);
+            if($det==null){
+                setcookie('first', true, time()+(86400+10), '/');
+                header('location: details_page.php');
+            }
 	}
-		header('Location: index.php');
 }
 
 }
