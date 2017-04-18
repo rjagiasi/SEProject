@@ -1,43 +1,5 @@
 
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="652807989103-m7m0fobg3qba9pd96vbep81t9apdfmj5.apps.googleusercontent.com">
 <link rel="stylesheet" type="text/css" href="../css/login.css">
-
-<script>
-function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        // var profile = googleUser.getBasicProfile();
-        // console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        // console.log('Full Name: ' + profile.getName());
-        // console.log('Given Name: ' + profile.getGivenName());
-        // console.log('Family Name: ' + profile.getFamilyName());
-        // console.log("Image URL: " + profile.getImageUrl());
-        // console.log("Email: " + profile.getEmail());
-
-        // The ID token you need to pass to your backend:
-        // var xhr = new XMLHttpRequest();
-        var id_token = googleUser.getAuthResponse().id_token;
-        window.location = "google.php?idtoken="+id_token;
-    //     console.log("ID Token: " + id_token);
-
-    // xhr.open('POST', 'google.php');
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    // xhr.send('idtoken=' + id_token);
-    // xhr.onload = function() {
-    //   console.log('Signed in as: ' + xhr.responseText);
-    // };
-
-};
-
-function signOut() {
-	var auth2 = gapi.auth2.getAuthInstance();
-	auth2.signOut();
-	window.location.href = "logout.php";    
-}
-	
-	$("#logout_button").click(signOut());
-</script>
-
 
 <?php if (isset($_COOKIE['name'])) { header('location: ../php/index.php');} ?>
 
