@@ -4,7 +4,7 @@
 	require("functions.php");
 
 	// print_r($_POST);
-	$timeslots = query("SELECT Date, Time, Slot_id FROM Timeslots WHERE Counsellor_id = ".$_POST["counselor_id"]." AND Date BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 2 MONTH) AND Avail_booked = 0 ORDER BY Date, Time");
+	$timeslots = query("SELECT Date, Time, Slot_id FROM timeslots WHERE Counsellor_id = ".$_POST["counselor_id"]." AND Date BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 2 MONTH) AND Avail_booked = 0 ORDER BY Date, Time");
 
 	$formatted_array = array();
 

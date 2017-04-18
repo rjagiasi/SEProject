@@ -46,7 +46,7 @@
 						<?php if (isset($_COOKIE['name'])) { ?>
 							<a href="../php/logout.php"><span class="glyphicon glyphicon-log-out"> Logout </a>
 						<?php }else{ ?>
-							<a href="../php/login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+							<a id="logout_button"><span class="glyphicon glyphicon-log-in"></span> Login</a>
 						<?php }?>
 						</li>
 				</ul>

@@ -1,4 +1,4 @@
-<img src="../imgs/Capture.png" class="img-responsive" alt="Cinque Terre" width="200" height="100"> 
+<img src="../imgs/Capture.PNG" class="img-responsive" alt="Cinque Terre" width="200" height="100"> 
 <br><br><br><br>
 <div class="blockquote-reverse" width="500">
 <h1>You can't make someone else's choice you shouldnt let <br>someone else make yours.</h1>

@@ -6,7 +6,7 @@ setcookie("pay_key", -1, time()-1, "/");
 setcookie("slot_id", -1, time()-1, "/");
 
 $slot_id = $_POST["slot_id"];
-$check = query("SELECT Avail_Booked, PayPal_Email_id from Timeslots, Counsellor	Where Timeslots.Counsellor_id = Counsellor.Counsellor_id and Slot_id = ". $slot_id);
+$check = query("SELECT Avail_Booked, PayPal_Email_id from timeslots, counsellor	Where timeslots.Counsellor_id = counsellor.Counsellor_id and Slot_id = ". $slot_id);
 
 
 if($check[0]["Avail_Booked"] == 0){
