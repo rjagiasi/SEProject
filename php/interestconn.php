@@ -10,5 +10,6 @@ if(isset($_POST['interest']))
 $result = query("INSERT INTO user_interests VALUES 
 ('".$_COOKIE["userid"]."','".$_COOKIE["interest"]."') ");
 
+header("Location: test_page.php");
 
 ?>

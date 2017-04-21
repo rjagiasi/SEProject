@@ -1,7 +1,12 @@
 <?php
-	session_start();
+session_start();
 
-	require("functions.php");
+require("functions.php");
 
+if(isset($_COOKIE["user"]))
 	render("counselor_page.php");
+else
+	header("Location: index.php");
+
+
 ?>

@@ -3,5 +3,10 @@
 
 	require("functions.php");
 
-	render("details_page.php");
+	echo isset($_COOKIE["user"]);
+
+	if(isset($_COOKIE["user"]) && isset($_COOKIE["first"]))
+		render("details_page.php");
+	else
+		header("Location: test_page.php");
 ?>

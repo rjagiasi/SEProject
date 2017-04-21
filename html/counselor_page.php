@@ -9,7 +9,7 @@
 			type: 'POST',
 			dataType: 'json',
 			success: function (allcounsellors) {
-
+				
 				var list1 = "";
 
 				allcounsellors[0].forEach( function(nearby_counsellor, index) {

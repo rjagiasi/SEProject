@@ -26,6 +26,7 @@ if($sel==null){
 	setcookie('user', $row['User_id'], time()+(86400*10), '/');
 	setcookie('name', $row['Name'], time()+(86400*10), '/');
 	setcookie('emailid', $row['Email_id'], time()+(86400*10), '/');
+	setcookie('role', 'User', time()+(86400*10), '/');
 	setcookie('first', true, time()+(86400*10), '/');
 	}
 	header('Location: details_page.php');
@@ -36,6 +37,7 @@ else{
 	setcookie('user', $row['User_id'], time()+(86400+10), '/');
 	setcookie('name', $row['Name'], time()+(86400+10), '/');
 	setcookie('emailid', $email, time()+(86400+10), '/');
+	setcookie('role', 'User', time()+(86400*10), '/');
 	$det = query("Select * from user_data where user_id = ".$row['User_id']);
             if($det==null){
                 setcookie('first', true, time()+(86400+10), '/');

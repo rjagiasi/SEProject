@@ -55,7 +55,7 @@ curl_setopt($curl_request, CURLOPT_POSTFIELDS, http_build_query($data));
 curl_setopt($curl_request, CURLOPT_RETURNTRANSFER, 1);
 
 $data = json_decode(curl_exec($curl_request), true);
-print_r($data);
+print_r($data["payKey"]);
 setcookie("pay_key", $data["payKey"], time()+900, "/");
 
 sleep(5);

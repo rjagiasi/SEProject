@@ -27,6 +27,7 @@ if ($usertab!=null){
             setcookie('user', $row['User_id'], time()+(86400*10), '/');
             setcookie('name', $row['Name'], time()+(86400*10), '/');
             setcookie('emailid', $email, time()+(86400*10), '/');
+            setcookie('role', 'User', time()+(86400*10), '/');
             $det = query("Select * from user_data where user_id = ".$row['User_id']);
             if($det==null){
                 setcookie('first', true, time()+(86400+10), '/');
@@ -39,6 +40,7 @@ elseif ($coun!=null) {
     setcookie('user', $row['User_id'], time()+(86400*10), '/');
     setcookie('name', $row['Name'], time()+(86400*10), '/');
     setcookie('emailid', $email, time()+(86400*10), '/');
+    setcookie('role', 'Counsellor', time()+(86400*10), '/');
     }
     header('location: counselor_login_page.php');
 }
@@ -46,6 +48,7 @@ elseif($email==ADMIN_EMAIL and $password==ADMIN_PASSWORD){
     // setcookie('userid', $row['user_id'], time()+(86400+10), '/');
     setcookie('name', 'admin', time()+(86400*10), '/');
     setcookie('emailid', $email, time()+(86400*10), '/');
+    setcookie('role', 'Admin', time()+(86400*10), '/'); 
         header('location: admin_login_page.php');   
 }
 else {
