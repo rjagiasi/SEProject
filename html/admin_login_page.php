@@ -63,20 +63,20 @@
         
         <div class="form-group">
           <label for="Question">Question:</label>
-          <input required type="text" id="Question" name="Question" placeholder="Type the question here:"><br/>
+          <input required type="text" class="form-control" id="Question" name="Question" placeholder="Type the question here:">
         </div>
         
         <div class="form-group">
           <label for="opt1">Option 1:</label>
-          <input required type="text" id="Opt1" name="opt1" placeholder="Enter option 1"><br/>
+          <input required type="text" class="form-control" id="Opt1" name="opt1" placeholder="Enter option 1">
           <label for="opt2">Option 2:</label>
-          <input required type="text" id="Opt2" name="opt2" placeholder="Enter option 2"><br/>
+          <input required type="text" class="form-control" id="Opt2" name="opt2" placeholder="Enter option 2">
           <label for="opt3">Option 3:</label>
-          <input required type="text" id="Opt3" name="opt3" placeholder="Enter option 3"><br/>
+          <input required type="text" class="form-control" id="Opt3" name="opt3" placeholder="Enter option 3">
           <label for="opt4">Option 4:</label>
-          <input required type="text" id="Opt4" name="opt4" placeholder="Enter option 4"><br><br/>
+          <input required type="text" class="form-control" id="Opt4" name="opt4" placeholder="Enter option 4"><br>
           <label for="answer">Option number of the Answer:</label>
-          <input type="number" MIN="1" MAX="4" id="answer" name="answer" placeholder="Enter option number of the answer  e.g. 1"><br/>
+          <input type="number" MIN="1" MAX="4" class="form-control" id="answer" name="answer" placeholder="Enter option number of the answer  e.g. 1">
         </div>
         <button type="submit" class="btn btn-default">Save</button>
         <button class="btn btn-default">Cancel</button>
@@ -91,12 +91,12 @@
       <form method="post" class="form-horizontal" action="addcounsellor.php">
         <div class="form-group">
           <label for="Cname">Name:</label>
-          <input required type="text" id="Cname" name="Cname" placeholder="Enter name of the Counsellor here:"><br/>
+          <input required type="text" class="form-control" id="Cname" name="Cname" placeholder="Enter name of the Counsellor here:">
         </div>
 
         <div class="form-group">
           <label for="Caddress">Address:</label>
-          <textarea required id="Caddress" name="Caddress" placeholder="Enter Address of the Counsellor here:"></textarea><br/>
+          <textarea required class="form-control" id="Caddress" name="Caddress" placeholder="Enter Address of the Counsellor here:"></textarea>
         </div>
 
         <label for="Cregion">Region:</label>
@@ -113,17 +113,17 @@
 
           <div class="form-group">
             <label for="Cnumber">Number:</label>
-            <input required type="Number" id="Cnumber" name="Cnumber" placeholder="Enter Number of the Counsellor here:">  <br/>
+            <input required type="Number" class="form-control" id="Cnumber" name="Cnumber" placeholder="Enter Number of the Counsellor here:">  
           </div>
 
           <div class="form-group">
             <label for="Cemail">Email:</label>
-            <input required type="email" id="Cemail" name="Cemail" placeholder="Enter email id of the Counsellor here:"><br/>
+            <input required type="email" class="form-control" id="Cemail" name="Cemail" placeholder="Enter email id of the Counsellor here:">
           </div>
 
           <div class="form-group">
             <label for="Cemail_p">Paypal linked email:</label>
-            <input required type="email" id="Cemail_p" name="Cemail_p" placeholder="Enter Paypal linked email id of the Counsellor here:"><br/>
+            <input required type="email" class="form-control" id="Cemail_p" name="Cemail_p" placeholder="Enter Paypal linked email id of the Counsellor here:">
           </div>
           <button type="submit" class="btn btn-default">Save</button>
           <button class="btn btn-default">Cancel</button>
@@ -138,12 +138,12 @@
         <form method="post" class="form-horizontal"  action="addinstitute.php">
           <div class="form-group">
             <label for="Iname">Name:</label>
-            <input required type="text" id="Iname" name="Iname" placeholder="Enter name of the Institute here:"><br/>
+            <input required type="text" class="form-control" id="Iname" name="Iname" placeholder="Enter name of the Institute here:">
           </div>
 
           <div class="form-group">
             <label for="Iaddress">Address:</label>
-            <textarea required id="Iaddress" name="Iaddress" placeholder="Enter Address of the Institute here:"></textarea><br/>
+            <textarea required class="form-control" id="Iaddress" name="Iaddress" placeholder="Enter Address of the Institute here:"></textarea>
           </div>
 
           <div class="form-group">
@@ -161,20 +161,20 @@
             </div>
             <div>
               <label for="cutoff">Cutoff:</label>
-              <input type="number" min="35" max="100" id="cutoff" name="cutoff" placeholder="Enter Cutoff in % of the Course here:" required><br/>
+              <input type="number" min="35" max="100" class="form-control" id="cutoff" name="cutoff" placeholder="Enter Cutoff in % of the Course here:" required>
             </div>
 
             <div class="form-group">
               <label for="Website">Website:</label>
-              <input required type="text" id="Website" name="Website" placeholder="Enter Website of the Institute here:"><br/>
+              <input required type="text" class="form-control" id="Website" name="Website" placeholder="Enter Website of the Institute here:">
             </div>
 
             <div class="form-group">
               <label for="Contact">Contact:</label><BR>
               <label for="Iemail">Email:</label>
-              <input required type="email" id="Iemail" name="Iemail" placeholder="Enter email id of the Institute here:"><br/>
+              <input required type="email" class="form-control" id="Iemail" name="Iemail" placeholder="Enter email id of the Institute here:">
               <label for="Inumber">Number:</label>
-              <input required type="Number" id="Inumber" name="Inumber" placeholder="Enter Number of the Institute here:">  <br/>
+              <input required type="Number" class="form-control" id="Inumber" name="Inumber" placeholder="Enter Number of the Institute here:">  
             </div>
             <button type="submit" class="btn btn-default">Save</button>
             <button class="btn btn-default">Cancel</button>
@@ -190,7 +190,7 @@
         <form method="POST" class="form-horizontal" action="addinterest.php">
           <div class="form-group">
             <label for="interest">Interest:</label>
-            <input required type="text" id="Interest" name="Interest" placeholder="Enter Interest here:">  <br/>
+            <input required type="text" class="form-control" id="Interest" name="Interest" placeholder="Enter Interest here:">  
           </div>
           <button type="submit" class="btn btn-default">Save</button>
         </form>     
